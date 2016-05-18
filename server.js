@@ -13,45 +13,26 @@ MongoClient.connect(url, function (err, db) {
 
     dboper.insertDocument(db, { name: "Vadonut", description: "Test"},
         "dishes", function(result) {
-            
-            console.log(result.ops);
-            
-            dboper.findDocuments(db, "dishes", function(docs) {
-                
-                console.log(docs);
-                
-                dboper.updateDocument(db, { name: "Vadonut" }, { description: "Updated Test" }, 
-                    "dishes", function(result) {
-                    
-                    console.log(result.result);
-                    
-                    dboper.findDocuments(db, "dishes", function(docs) {
-                       
-                        console.log(docs);
-
-                        db.dropCollection("dishes", function(result) {
-                            
-                            console.log(result);
-                            db.close();
-                        });
-                        
-                    });
-                });
-            });
-        });
-        
-        var collection = db.collection("dishes");
-        collection.insertOne({name: "Uthapizza", description: "test"}, function(err,result){
-        assert.equal(err,null);
-        console.log("After Insert:");
         console.log(result.ops);
-                collection.find({}).toArray(function(err,docs){
-            assert.equal(err,null);
-            console.log("Found:");
+        
+        dboper.findDocuments(db, "dishes", function(docs) {
             console.log(docs);
-                        db.dropCollection("dishes", function(err, result){
-               assert.equal(err,null);
-               db.close();
+            
+            dboper.updateDocument(db, { name: "Vadonut" }, { description: "Updated Test" }, 
+                "dishes", function(result) {
+                console.log(result.result);
+                
+                // Aqui peta
+                dboper.findDocuments(db, "dishes", function(docs) {
+                    console.log(docs);
+
+                    db.dropCollection("dishes", function(result) {
+                        console.log(result);
+                        
+                        db.close();
+                    });
+                    
+                });
             });
         });
     });
