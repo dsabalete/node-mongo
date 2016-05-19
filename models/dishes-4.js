@@ -31,20 +31,17 @@ var dishSchema = new Schema({
         unique: true
     },
     image: {
-        type: String,
-        required: true
+        type: String
     },
     category: {
-        type: String,
-        required: true
+        type: String
     },
     label: {
         type: String,
         required: false
     },
     price: {
-        type: Currency,  
-        required: true
+        type: Currency
     },
     description: {
         type: String,

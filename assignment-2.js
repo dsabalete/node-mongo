@@ -42,6 +42,7 @@ db.once("open", function() {
         
         console.log("Dish created!");
         //console.log(dish);
+        console.log('Price: ' + (dish.price / 100).toFixed(2));
         var id = dish._id;
         
         // get all the dishes
@@ -66,7 +67,6 @@ db.once("open", function() {
                 dish.save(function(err, dish) {
                     console.log('Updated Comments!');
                     //console.log(dish);
-                    console.log('Price: ' + dish.price.toFixed(2));
                     
                     db.collection('dishes').drop(function() {
                         db.close();
