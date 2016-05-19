@@ -9,6 +9,15 @@ var leaderSchema = new Schema({
         required: true,
         unique: true
     },
+    image: {
+        type: String
+    },
+    designation: {
+        type: String
+    },
+    abbr: {
+        type: String
+    },
     description: {
         type: String,
         required: true

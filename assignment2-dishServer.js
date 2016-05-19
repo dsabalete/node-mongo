@@ -2,8 +2,6 @@ var mongoose = require('mongoose'),
     assert = require('assert');
 
 var Dishes = require("./models/dishes-4");    
-var Promotions = require("./models/promotions");
-var Leaderships = require("./models/leaderships");
 
 // Connection URL
 var url = 'mongodb://localhost:27017/conFusion';
@@ -41,7 +39,7 @@ db.once("open", function() {
         if (err) throw err;
         
         console.log("Dish created!");
-        //console.log(dish);
+        console.log(dish);
         console.log('Price: ' + (dish.price / 100).toFixed(2));
         var id = dish._id;
         
@@ -56,7 +54,7 @@ db.once("open", function() {
                 if (err) throw err;
                 
                 console.log('Updated Dish!');
-                //console.log(dish);
+                console.log(dish);
                 
                 dish.comments.push({
                     rating: 5,
@@ -65,8 +63,10 @@ db.once("open", function() {
                 });
                 
                 dish.save(function(err, dish) {
+                    if (err) throw err;
+                    
                     console.log('Updated Comments!');
-                    //console.log(dish);
+                    console.log(dish);
                     
                     db.collection('dishes').drop(function() {
                         db.close();
