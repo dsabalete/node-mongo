@@ -1,0 +1,13 @@
+{
+  "name": "node-mongo-example",
+  "version": "0.0.1",
+  "description": "Node Mongoose Example application",
+  "main": "server.js",
+  "repository": "",
+  "private": true,
+  "author": "David Sabalete <dsabalete@gmail.com>",
+  "dependencies": {
+    "assert": "^1.4.0",
+    "mongodb": "^2.1.19"
+  }
+}
