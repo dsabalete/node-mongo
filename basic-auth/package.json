@@ -8,6 +8,7 @@
   "author": "David Sabalete <dsabalete@gmail.com>",
   "dependencies": {
     "assert": "^1.3.0",
+    "cookie-parser": "^1.4.3",
     "express": "~3.2.4",
     "mongodb": "^2.1.19",
     "mongoose": "^4.4.17",
